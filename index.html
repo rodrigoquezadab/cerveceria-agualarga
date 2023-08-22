@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cerveza Artesanal Agualarga</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        section {
+            padding: 2rem 0;
+        }
+
+        .beer-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .beer-card {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            width: 300px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .beer-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Cerveza Artesanal Agualarga</h1>
+            <nav>
+                <ul>
+                    <li><a href="#cervecero">Cervecero</a></li>
+                    <li><a href="#variedades">Variedades</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section id="cervecero">
+            <h2>Nuestro Cervecero</h2>
+            <p>Sergio Lagos Balmaceda, formado como cervecero en Argentina e Inglaterra, es el maestro detrás de nuestras exquisitas cervezas.</p>
+        </section>
+
+        <section id="variedades">
+            <h2>Variedades de Cerveza</h2>
+            <div class="beer-cards" id="beer-list">
+                <!-- Las tarjetas de variedades de cerveza se añadirán aquí usando JavaScript -->
+            </div>
+        </section>
+
+        <section id="contacto">
+            <h2>Contacto</h2>
+            <p>¡Gracias por explorar nuestras cervezas artesanales! Para realizar pedidos o hacer consultas, contáctanos en: <a href="mailto:info@cervezaagualarga.com">info@cervezaagualarga.com</a></p>
+        </section>
+
+        <footer>
+            <p>&copy; 2023 Cerveza Artesanal Agualarga. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <script>
+        const beerList = document.getElementById("beer-list");
+
+        const cervezas = [
+            { nombre: "IPA Culebra", descripcion: "Una explosión de lúpulo y notas cítricas." },
+            { nombre: "Red Lagartija", descripcion: "Una cerveza ambarina con sabores tostados y afrutados." },
+            { nombre: "Stout Condor", descripcion: "Oscura y cremosa, con matices de chocolate y café." },
+            { nombre: "Ambar Tortuga", descripcion: "Una cerveza suave con tintes ambarinos y notas dulces." },
+            { nombre: "Pale Puma", descripcion: "Ligera y refrescante, con un carácter lupulado equilibrado." },
+            { nombre: "Blonde Zorro", descripcion: "Una rubia delicada con matices suaves y florales." }
+        ];
+
+        cervezas.forEach(cerveza => {
+            const beerCard = document.createElement("div");
+            beerCard.classList.add("beer-card");
+
+            const beerImage = document.createElement("img");
+            beerImage.src = `images/${cerveza.nombre.replace(/\s+/g, '-').toLowerCase()}.jpg`; // Asume que las imágenes están en una carpeta "images"
+            beerImage.alt = cerveza.nombre;
+
+            const beerDescription = document.createElement("p");
+            beerDescription.innerHTML = `<strong>${cerveza.nombre}</strong>: ${cerveza.descripcion}`;
+
+            beerCard.appendChild(beerImage);
+            beerCard.appendChild(beerDescription);
+            beerList.appendChild(beerCard);
+        });
+    </script>
+</body>
+</html>
