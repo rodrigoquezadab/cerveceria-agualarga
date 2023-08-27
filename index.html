@@ -114,7 +114,7 @@
         <section id="cervecero">
             <h2>Nuestro Cervecero</h2>
             <div style="display: flex; align-items: center;">
-                <img src="/images/maestro-sergio-lagos.jpg" alt="Sergio Lagos Balmaceda" style="max-width: 200px; margin-right: 20px; height: 200px;">
+                <img src="images/maestro-sergio-lagos.jpg" alt="Sergio Lagos Balmaceda" style="max-width: 150px; margin-right: 20px; height: 150px;">
                 <p>En 2012, mi pasión por la cerveza me llevó a un curso en Florida, Estados Unidos, donde descubrí la
                     filosofía "homebrew" y comencé a forjar mis primeras creaciones cerveceras. Cuatro años más tarde, en
                     2016, me sumergí en el mundo de la elaboración de cervezas artesanales al tomar un curso en el Instituto
@@ -159,12 +159,12 @@
         const beerList = document.getElementById("beer-list");
 
         const cervezas = [
-            { nombre: "IPA Culebra", descripcion: "Una explosión de lúpulo y notas cítricas." },
-            { nombre: "Red Lagartija", descripcion: "Una cerveza ambarina con sabores tostados y afrutados." },
-            { nombre: "Stout Condor", descripcion: "Oscura y cremosa, con matices de chocolate y café." },
-            { nombre: "Ambar Tortuga", descripcion: "Una cerveza suave con tintes ambarinos y notas dulces." },
-            { nombre: "Pale Puma", descripcion: "Ligera y refrescante, con un carácter lupulado equilibrado." },
-            { nombre: "Blonde Zorro", descripcion: "Una rubia delicada con matices suaves y florales." }
+            { nombre: "IPA Culebra", descripcion: "Una explosión de lúpulo y notas cítricas.", valor: "$3.000.-" },
+            { nombre: "Red Lagartija", descripcion: "Una cerveza ambarina con sabores tostados y afrutados.", valor: "$3.000.-" },
+            { nombre: "Stout Condor", descripcion: "Oscura y cremosa, con matices de chocolate y café.", valor: "$3.000.-" },
+            { nombre: "Ambar Tortuga", descripcion: "Una cerveza suave con tintes ambarinos y notas dulces.", valor: "$3.000.-" },
+            { nombre: "Pale Puma", descripcion: "Ligera y refrescante, con un carácter lupulado equilibrado.", valor: "$3.000.-" },
+            { nombre: "Blonde Zorro", descripcion: "Una rubia delicada con matices suaves y florales.", valor: "$3.000.-" }
         ];
 
         cervezas.forEach(cerveza => {
@@ -176,7 +176,8 @@
             beerImage.alt = cerveza.nombre;
 
             const beerDescription = document.createElement("p");
-            beerDescription.innerHTML = `<strong>${cerveza.nombre}</strong>: ${cerveza.descripcion}`;
+            beerDescription.innerHTML = `<strong>${cerveza.nombre}</strong>: ${cerveza.descripcion} <br> <strong> Valor: ${cerveza.valor}</strong>`;
+
 
             beerCard.appendChild(beerImage);
             beerCard.appendChild(beerDescription);
