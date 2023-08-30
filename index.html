@@ -41,6 +41,28 @@
             text-decoration: none;
         }
 
+        /* Estilos adicionales para hacerlo responsive */
+        @media screen and (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+
+            header {
+                padding: 1rem 0;
+            }
+
+            .beer-card {
+                width: 100%;
+                padding: 10px;
+            }
+        }
+
+
         section {
             padding: 2rem 0;
         }
@@ -87,9 +109,8 @@
                     <li><a href="#quienes-somos">Quiénes Somos</a></li>
                     <li><a href="#variedades">Variedades</a></li>
                     <li><a href="#cervecero">Cervecero</a></li>
-                    <li><a href="#ventas">Cervecero</a></li>
+                    <li><a href="#ventas">Ventas</a></li>
                     <li><a href="#contacto">Contacto</a></li>
-
                 </ul>
             </nav>
         </header>
