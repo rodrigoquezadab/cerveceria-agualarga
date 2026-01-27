@@ -4,230 +4,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cerveza Artesanal Agualarga</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        header {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 1rem;
-        }
-
-        nav ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-        }
-
-        nav ul li {
-            margin: 0 1rem;
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-        }
-
-        /* Estilos adicionales para hacerlo responsive */
-        @media screen and (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            nav ul li {
-                margin: 0.5rem 0;
-            }
-
-            header {
-                padding: 1rem 0;
-            }
-
-            .beer-card {
-                width: 100%;
-                padding: 10px;
-            }
-        }
-
-
-        section {
-            padding: 2rem 0;
-        }
-
-        .beer-cards {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-        }
-
-        .beer-card {
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 20px;
-            width: 300px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        .beer-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin-bottom: 10px;
-        }
-
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 1rem;
-        }
-    </style>
+    <title>Cerveza Artesanal Agualarga | Espíritu de Montaña</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <div class="container">
-        <header>
-            <h1>Cerveza Artesanal Agualarga</h1>
-            <nav>
-                <ul>
+    <header id="main-header">
+        <div class="container header-container">
+            <div class="logo">
+                <h1>Agualarga</h1>
+            </div>
+            <nav id="main-nav">
+                <button class="menu-toggle" aria-label="Abrir menú">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links">
                     <li><a href="#quienes-somos">Quiénes Somos</a></li>
                     <li><a href="#variedades">Variedades</a></li>
-                    <li><a href="#cervecero">Cervecero</a></li>
-                    <li><a href="#ventas">Ventas</a></li>
+                    <li><a href="#donde-encontrarnos">Dónde Encontrarnos</a></li>
+                    <li><a href="#cervecero">Nuestro Cervecero</a></li>
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
             </nav>
-        </header>
+        </div>
+    </header>
 
-        <section id="quienes-somos">
-            <h2>Quiénes Somos</h2>
-            <p>En Agua Larga, nos apasiona la creación de cervezas artesanales excepcionales. Nuestro compromiso con la
-                calidad y la autenticidad impulsa cada paso de nuestro proceso de elaboración. Utilizamos agua natural
-                de vertiente para dar vida a nuestras variedades de cerveza únicas.</p>
+    <section id="hero">
+        <div class="hero-content">
+            <h2>Espíritu de Montaña</h2>
+            <p>Huella Artesanal, elaborada con Agua de Vertiente en Farellones.</p>
+            <a href="#donde-encontrarnos" class="cta-button">Puntos de Venta</a>
+        </div>
+    </section>
 
-            <p>Nuestra inspiración proviene de la naturaleza y la diversidad de sabores que ofrece. Cada variedad de
-                cerveza que producimos es una expresión de esta inspiración, llevando a los amantes de la cerveza en un
-                viaje sensorial.</p>
-
-            <p>En Agua Larga, creemos en la artesanía, la innovación y la satisfacción de nuestros clientes. Cada
-                botella que lleva nuestro nombre es el resultado de una dedicación constante para brindar experiencias
-                cerveceras auténticas y memorables. ¡Bienvenidos a la experiencia Agua Larga!</p>
+    <div class="container">
+        <section id="quienes-somos" class="section-padding">
+            <h2 class="section-title">Nuestra Esencia</h2>
+            <div class="about-content">
+                <p>En <strong>Agualarga</strong>, el corazón de nuestra cerveza late en Farellones. Aquí, en la
+                    majestuosidad de la montaña, nace nuestra cerveza artesanal, infundida con la pureza inigualable del
+                    <strong>"Agua de Vertiente"</strong> natural.
+                </p>
+                <p>Este origen único nos permite ofrecerte variedades con un sabor auténtico, reflejo de nuestra pasión
+                    familiar y fidelidad a la calidad. Creemos en la artesanía, la innovación y la satisfacción de
+                    quienes buscan una experiencia cervecera memorable.</p>
+            </div>
         </section>
 
-
-
-        <section id="variedades">
-            <h2>Variedades de Cerveza</h2>
+        <section id="variedades" class="section-padding">
+            <h2 class="section-title">Nuestras Variedades</h2>
+            <p class="section-subtitle">Descubre el carácter de cada una de nuestras creaciones.</p>
             <div class="beer-cards" id="beer-list">
-                <!-- Las tarjetas de variedades de cerveza se añadirán aquí usando JavaScript -->
+                <!-- Javascript will populate this -->
             </div>
         </section>
 
-        <section id="ventas">
-            <h2>Ventas</h2>
-            <p>
-                Para adquirir nuestras cervezas, simplemente necesitas realizar una transferencia por el múltiplo de $3.000.- por botella. Además, indícanos las variedades que deseas, proporciona la dirección de entrega y un número de teléfono para coordinar la entrega.</p>
-            <div>
-                <p>Cuenta Rut Banco Estado: 14118596</p>
-                <p>Nombre: Sergio Lagos</p>
-                <p>Rut: 14.118.596-9</p>
-                <p>Email: sergio.lagos.balmaceda@gmail.com</p>
+        <section id="donde-encontrarnos" class="section-padding highlight-section">
+            <h2 class="section-title">Puntos de Venta</h2>
+            <p class="section-subtitle">Disfruta Agualarga en estos exclusivos lugares:</p>
+
+            <div class="places-grid">
+                <div class="place-card">
+                    <img src="images/peluqueria-francesa.jpg" alt="Peluquería Francesa" class="place-img">
+                    <h3>Peluquería Francesa</h3>
+                    <p class="place-desc">Bar Restaurante histórico en el corazón del Barrio Yungay.</p>
+                    <div class="place-details">
+                        <p><strong>Dirección:</strong> Compañía de Jesús 2789, Santiago.</p>
+                        <p><strong>Reservas:</strong> +56 9 7798 9743</p>
+                    </div>
+                    <div class="place-links">
+                        <a href="https://peluqueriafrancesa.com/" target="_blank" class="place-btn"><i
+                                class="fas fa-globe"></i> Visitar Web</a>
+                        <a href="carta-maridaje.html" class="place-btn"><i class="fas fa-utensils"></i> Ver Carta de
+                            Maridaje</a>
+                        <a href="https://instagram.com/peluqueriafrancesa" target="_blank" class="instagram-link"><i
+                                class="fab fa-instagram"></i> @peluqueriafrancesa</a>
+                    </div>
+                </div>
+
+                <div class="place-card">
+                    <img src="images/agua-de-piedra.jpg" alt="Agua de Piedra" class="place-img">
+                    <h3>Agua de Piedra</h3>
+                    <p class="place-desc">Tradición y comida casera en Curacaví.</p>
+                    <div class="place-details">
+                        <p><strong>Dirección:</strong> Ruta 68 km 55, Curacaví.</p>
+                        <p><strong>Reservas:</strong> +56 2 2835 1122</p>
+                    </div>
+                    <div class="place-links">
+                        <a href="https://www.restaurantaguadepiedra.cl/" target="_blank" class="place-btn"><i
+                                class="fas fa-globe"></i> Visitar Web</a>
+                        <a href="https://instagram.com/aguadepiedrarestaurant" target="_blank" class="instagram-link"><i
+                                class="fab fa-instagram"></i> @aguadepiedrarestaurant</a>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section id="cervecero">
-            <h2>Nuestro Cervecero</h2>
-            <div style="display: flex; align-items: center;">
-                <img src="images/maestro-sergio-lagos.jpg" alt="Sergio Lagos Balmaceda"
-                    style="max-width: 150px; margin-right: 20px; height: 150px;">
-                <p>En 2012, mi pasión por la cerveza me llevó a un curso en Florida, Estados Unidos, donde descubrí la
-                    filosofía "homebrew" y comencé a forjar mis primeras creaciones cerveceras. Cuatro años más tarde,
-                    en
-                    2016, me sumergí en el mundo de la elaboración de cervezas artesanales al tomar un curso en el
-                    Instituto
-                    Mundo Pastel en La Plata, Argentina. Fue allí donde tuve el privilegio de conocer los lupúlos
-                    argentinos, los cuales me inspiraron a crear recetas basadas en la brillante esencia de la pampeana
-                    dorada, un clásico de la cultura argentina.</p>
+        <section id="cervecero" class="section-padding">
+            <h2 class="section-title">El Maestro Cervecero</h2>
+            <div class="cervecero-content">
+                <div class="cervecero-img">
+                    <img src="images/maestro-sergio-lagos.jpg" alt="Sergio Lagos Balmaceda">
+                </div>
+                <div class="cervecero-text">
+                    <h3>Sergio Lagos Balmaceda</h3>
+                    <p>Formado en EEUU, Argentina e Irlanda, Sergio es el alquimista detrás de Agualarga. Su viaje
+                        comenzó en 2012 y se perfeccionó explorando los lúpulos argentinos y la tradición stout
+                        irlandesa.</p>
+                    <p>Cada receta es un homenaje a sus viajes y aprendizajes, buscando siempre el equilibrio perfecto
+                        entre la tradición europea y el espíritu indómito de los Andes chilenos.</p>
+                </div>
             </div>
-
-            <p> En el año 2017, mi búsqueda de conocimiento cervecero me llevó al sur de Irlanda, donde participé en un
-                curso dedicado a las cervezas artesanales. Fue en esta tierra de tradición cervecera que tuve la
-                oportunidad de experimentar con la icónica cerveza stout y visitar la legendaria fábrica de cerveza
-                Guinness. Este viaje enriqueció mi bagaje en las cervezas oscuras y robustas, añadiendo profundidad a mi
-                expertise.</p>
-
-            <p> Mi sed de aprender y perfeccionar mis habilidades continuó. En un paso más en mi viaje, tomé un curso
-                que me permitió dominar la preparación de cervezas estilo Irish Red. Esta variedad, caracterizada por su
-                sabor suave y agradable, se convirtió en otra paleta de sabores que puedo ofrecer a los amantes de la
-                cerveza que aprecian la diversidad y la artesanía.</p>
-
-            <p> A lo largo de estos años de formación y exploración, he desarrollado un profundo respeto por la riqueza
-                y variedad de la cerveza artesanal. Cada experiencia ha moldeado mi enfoque y enriquecido mi paleta
-                creativa, permitiéndome ofrecer a los aficionados a la cerveza una gama de opciones que honran tanto la
-                tradición como la innovación.</p>
-
-            <p>Sergio Lagos Balmaceda, formado como cervecero en EEUU, Argentina e Irlanda del sur, es el maestro detrás
-                de
-                nuestras exquisitas cervezas.</p>
         </section>
 
-
-        <section id="contacto">
-            <h2>Contacto</h2>
-            <p>¡Gracias por explorar nuestras cervezas artesanales! Para realizar pedidos o hacer consultas, contáctanos
-                en: <a href="mailto:sergio.lagos.balmaceda@gmail.com">sergio.lagos.balmaceda@gmail.com</a></p>
+        <section id="contacto" class="section-padding text-center">
+            <h2 class="section-title">Contacto</h2>
+            <p>¿Quieres saber más sobre nuestra producción familiar?</p>
+            <div class="contact-links">
+                <a href="https://wa.me/56979240117" target="_blank" class="contact-btn whatsapp"><i
+                        class="fab fa-whatsapp"></i> WhatsApp: +56 9 7924
+                    0117</a>
+                <a href="https://instagram.com/agualarga_cerveza_artesanal" target="_blank"
+                    class="contact-btn instagram"><i class="fab fa-instagram"></i> @agualarga_cerveza_artesanal</a>
+            </div>
         </section>
-
-        <footer>
-            <p>&copy; 2023 Cerveza Artesanal Agualarga. Todos los derechos reservados.</p>
-        </footer>
     </div>
 
-    <script>
-        const beerList = document.getElementById("beer-list");
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Cerveza Artesanal Agualarga. Todos los derechos reservados.</p>
+            <p>Espíritu de Montaña | Farellones, Chile</p>
+        </div>
+    </footer>
 
-        const cervezas = [
-            { nombre: "IPA Culebra", descripcion: "Una explosión de lúpulo y notas cítricas.", valor: "$3.000.-" },
-            { nombre: "Red Lagartija", descripcion: "Una cerveza ambarina con sabores tostados y afrutados.", valor: "$3.000.-" },
-            { nombre: "Stout Condor", descripcion: "Oscura y cremosa, con matices de chocolate y café.", valor: "$3.000.-" },
-            { nombre: "Ambar Tortuga", descripcion: "Una cerveza suave con tintes ambarinos y notas dulces.", valor: "$3.000.-" },
-            { nombre: "Pale Puma", descripcion: "Ligera y refrescante, con un carácter lupulado equilibrado.", valor: "$3.000.-" },
-            { nombre: "Blonde Zorro", descripcion: "Una rubia delicada con matices suaves y florales.", valor: "$3.000.-" }
-        ];
-
-        cervezas.forEach(cerveza => {
-            const beerCard = document.createElement("div");
-            beerCard.classList.add("beer-card");
-
-            const beerImage = document.createElement("img");
-            beerImage.src = `images/${cerveza.nombre.replace(/\s+/g, '-').toLowerCase()}.jpg`; // Asume que las imágenes están en una carpeta "images"
-            beerImage.alt = cerveza.nombre;
-
-            const beerDescription = document.createElement("p");
-            beerDescription.innerHTML = `<strong>${cerveza.nombre}</strong>: ${cerveza.descripcion} <br> <strong> Valor: ${cerveza.valor}</strong>`;
-
-
-            beerCard.appendChild(beerImage);
-            beerCard.appendChild(beerDescription);
-            beerList.appendChild(beerCard);
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
