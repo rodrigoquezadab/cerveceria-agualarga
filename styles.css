@@ -496,3 +496,59 @@ footer p {
         font-size: 2rem;
     }
 }
+
+/* Accordion Styles */
+.animal-accordion {
+    margin: 15px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.accordion-btn {
+    background: none;
+    border: none;
+    width: 100%;
+    padding: 10px 0;
+    text-align: left;
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--primary-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.accordion-btn:hover {
+    color: var(--accent-color);
+}
+
+.accordion-btn i {
+    transition: transform 0.3s;
+}
+
+.accordion-btn.active i {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+    padding: 0 5px;
+}
+
+.accordion-content.active {
+    max-height: 200px;
+    /* Adjust if content is longer */
+    transition: max-height 0.4s ease-in;
+}
+
+.accordion-content p {
+    font-size: 0.9rem;
+    color: #555;
+    margin: 10px 0;
+    line-height: 1.5;
+}

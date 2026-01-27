@@ -13,29 +13,33 @@ document.addEventListener('DOMContentLoaded', () => {
     const beerList = document.getElementById("beer-list");
 
     const cervezas = [
-        { 
-            nombre: "Tucúquere Amber Ale", 
+        {
+            nombre: "Tucúquere Amber Ale",
             grados: "5.5°",
-            descripcion: "Equilibrio perfecto entre malta y lúpulo, con un color ámbar profundo.", 
-            imagen: "images/ambar-tortuga.jpg" // Using existing image for Amber
+            descripcion: "Equilibrio perfecto entre malta y lúpulo, con un color ámbar profundo.",
+            imagen: "images/ambar-tortuga.jpg",
+            infoAnimal: "El <strong>Tucúquere</strong> (<em>Bubo magellanicus</em>) es el búho más grande de Chile. Guardián de la noche andina, su ulular profundo resuena en las quebradas. Representa la sabiduría silenciosa y la vigilancia de nuestros valles."
         },
-        { 
-            nombre: "Condor Stout", 
-            grados: "5.5°", 
-            descripcion: "Oscura, robusta y cremosa, con notas intensas a café y chocolate.", 
-            imagen: "images/stout-condor.jpg" 
+        {
+            nombre: "Condor Stout",
+            grados: "5.5°",
+            descripcion: "Oscura, robusta y cremosa, con notas intensas a café y chocolate.",
+            imagen: "images/stout-condor.jpg",
+            infoAnimal: "El <strong>Cóndor Andino</strong> (<em>Vultur gryphus</em>) es el rey de los cielos sudamericanos. Símbolo de poder y libertad, planea sobre las cumbres nevadas conectando el mundo terrenal con el espiritual."
         },
-        { 
-            nombre: "Lagartija Red", 
-            grados: "6.0°", 
-            descripcion: "Rojiza y vibrante, con un carácter maltoso y un final suave.", 
-            imagen: "images/red-lagartija.jpg" 
+        {
+            nombre: "Lagartija Red",
+            grados: "6.0°",
+            descripcion: "Rojiza y vibrante, con un carácter maltoso y un final suave.",
+            imagen: "images/red-lagartija.jpg",
+            infoAnimal: "La <strong>Lagartija Chilena</strong> es una ágil habitante de las rocas soleadas. Con sus colores vibrantes, simboliza la resiliencia y la vida que florece incluso en los terrenos más áridos de la montaña."
         },
-        { 
-            nombre: "Culebra IPA", 
-            grados: "7.0°", 
-            descripcion: "Potente y aromática, una explosión de lúpulo para los valientes.", 
-            imagen: "images/ipa-culebra.jpg" 
+        {
+            nombre: "Culebra IPA",
+            grados: "7.0°",
+            descripcion: "Potente y aromática, una explosión de lúpulo para los valientes.",
+            imagen: "images/ipa-culebra.jpg",
+            infoAnimal: "La <strong>Culebra de Cola Larga</strong> (<em>Philodryas chamissonis</em>) es endémica de Chile. Elegante y veloz, se desliza entre matorrales, recordándonos el respeto por la naturaleza salvaje y su equilibrio."
         }
     ];
 
@@ -52,11 +56,38 @@ document.addEventListener('DOMContentLoaded', () => {
                         <h3>${cerveza.nombre}</h3>
                         <p class="description">${cerveza.descripcion}</p>
                     </div>
+                    
+                    <div class="animal-accordion">
+                        <button class="accordion-btn">Sobre el Animal <i class="fas fa-chevron-down"></i></button>
+                        <div class="accordion-content">
+                            <p>${cerveza.infoAnimal}</p>
+                        </div>
+                    </div>
+
                     <p class="details">Alcohol: ${cerveza.grados}</p>
                 </div>
             `;
 
             beerList.appendChild(beerCard);
+
+            // Accordion Logic
+            const btn = beerCard.querySelector('.accordion-btn');
+            const content = beerCard.querySelector('.accordion-content');
+
+            btn.addEventListener('click', () => {
+                const isActive = content.classList.contains('active');
+
+                // Close all others (optional, but cleaner)
+                document.querySelectorAll('.accordion-content').forEach(c => {
+                    c.classList.remove('active');
+                    c.previousElementSibling.classList.remove('active');
+                });
+
+                if (!isActive) {
+                    content.classList.add('active');
+                    btn.classList.add('active');
+                }
+            });
         });
     }
 
@@ -66,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const targetId = this.getAttribute('href');
             const targetElement = document.querySelector(targetId);
-            
+
             if (targetElement) {
                 // Close mobile menu if open
                 if (navLinks.classList.contains('active')) {
@@ -76,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const headerOffset = 80;
                 const elementPosition = targetElement.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-        
+
                 window.scrollTo({
                     top: offsetPosition,
                     behavior: "smooth"
