@@ -1,4 +1,38 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Age Gate Logic
+    const ageGate = document.getElementById('age-gate');
+    const btnYes = document.getElementById('btn-yes');
+    const btnNo = document.getElementById('btn-no');
+
+    // Check if previously verified in this session
+    if (sessionStorage.getItem('ageVerified') === 'true') {
+        if (ageGate) ageGate.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restore scroll
+    } else {
+        // Lock scroll when age gate is visible
+        document.body.style.overflow = 'hidden';
+    }
+
+    if (btnYes) {
+        btnYes.addEventListener('click', () => {
+            sessionStorage.setItem('ageVerified', 'true');
+            if (ageGate) {
+                ageGate.style.opacity = '0';
+                ageGate.style.transition = 'opacity 0.5s ease';
+                setTimeout(() => {
+                    ageGate.style.display = 'none';
+                    document.body.style.overflow = 'auto'; // Restore scroll
+                }, 500);
+            }
+        });
+    }
+
+    if (btnNo) {
+        btnNo.addEventListener('click', () => {
+            window.location.href = 'https://www.google.com';
+        });
+    }
+
     // Mobile Menu Toggle
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
