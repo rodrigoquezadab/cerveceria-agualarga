@@ -14,31 +14,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const cervezas = [
         {
-            nombre: "Tucúquere Amber Ale",
+            nombre: "Amber Ale Tucúquere",
             grados: "5.5°",
             descripcion: "Equilibrio perfecto entre malta y lúpulo, con un color ámbar profundo.",
-            imagen: "images/ambar-tortuga.jpg",
+            imagen: "images/beers/amber cuadrado.png",
             infoAnimal: "El <strong>Tucúquere</strong> (<em>Bubo magellanicus</em>) es el búho más grande de Chile. Guardián de la noche andina, su ulular profundo resuena en las quebradas. Representa la sabiduría silenciosa y la vigilancia de nuestros valles."
         },
         {
-            nombre: "Condor Stout",
+            nombre: "Stout Condor",
             grados: "5.5°",
             descripcion: "Oscura, robusta y cremosa, con notas intensas a café y chocolate.",
-            imagen: "images/stout-condor.jpg",
+            imagen: "images/beers/stout cuadrado.png",
             infoAnimal: "El <strong>Cóndor Andino</strong> (<em>Vultur gryphus</em>) es el rey de los cielos sudamericanos. Símbolo de poder y libertad, planea sobre las cumbres nevadas conectando el mundo terrenal con el espiritual."
         },
         {
-            nombre: "Lagartija Red",
+            nombre: "Red Lagartija",
             grados: "6.0°",
             descripcion: "Rojiza y vibrante, con un carácter maltoso y un final suave.",
-            imagen: "images/red-lagartija.jpg",
+            imagen: "images/beers/red cuadrado.png",
             infoAnimal: "La <strong>Lagartija Chilena</strong> es una ágil habitante de las rocas soleadas. Con sus colores vibrantes, simboliza la resiliencia y la vida que florece incluso en los terrenos más áridos de la montaña."
         },
         {
-            nombre: "Culebra IPA",
+            nombre: "IPA Culebra",
             grados: "7.0°",
             descripcion: "Potente y aromática, una explosión de lúpulo para los valientes.",
-            imagen: "images/ipa-culebra.jpg",
+            imagen: "images/beers/ipa cuadrado.png",
             infoAnimal: "La <strong>Culebra de Cola Larga</strong> (<em>Philodryas chamissonis</em>) es endémica de Chile. Elegante y veloz, se desliza entre matorrales, recordándonos el respeto por la naturaleza salvaje y su equilibrio."
         }
     ];
