@@ -86,8 +86,10 @@ header {
     background-color: var(--secondary-color);
     color: var(--text-light);
     padding: 15px 0;
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
@@ -98,11 +100,18 @@ header {
     align-items: center;
 }
 
-.logo h1 {
-    margin: 0;
-    color: var(--text-light);
+.logo-text {
+    font-family: var(--font-heading);
     font-size: 1.8rem;
+    font-weight: 700;
     letter-spacing: 1px;
+    color: var(--text-light);
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+.logo-text:hover {
+    color: var(--accent-color);
 }
 
 .nav-links {
@@ -147,6 +156,19 @@ header {
     background-color: white;
     margin: 5px 0;
     border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
 }
 
 /* Hero Section */
@@ -154,12 +176,14 @@ header {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/El-Plomo.jpg');
     background-size: cover;
     background-position: center;
-    height: 80vh;
+    min-height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     color: white;
+    padding: 100px 20px 40px 20px;
+    box-sizing: border-box;
 }
 
 /* Fallback if user doesn't have El-Plomo.jpg or if it fails to load, background color is dark */
@@ -179,7 +203,7 @@ header {
     animation: fadeIn 1.5s ease-out;
 }
 
-.hero-content h2 {
+.hero-content h1 {
     font-size: 3.5rem;
     margin-bottom: 20px;
     color: #fff;
@@ -355,10 +379,13 @@ header {
     border-radius: 5px;
     text-align: center;
     font-size: 0.9rem;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .place-btn:hover {
     background-color: #34495e;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .instagram-link {
@@ -420,12 +447,14 @@ header {
     border: 2px solid var(--secondary-color);
     color: var(--secondary-color);
     font-weight: bold;
-    transition: all 0.3s;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .contact-btn:hover {
     background-color: var(--secondary-color);
     color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .contact-btn.instagram {
@@ -475,24 +504,32 @@ footer p {
 }
 
 @media (max-width: 768px) {
-    .hero-content h2 {
+    .hero-content h1 {
         font-size: 2.5rem;
     }
 
     .nav-links {
-        display: none;
+        display: flex;
         flex-direction: column;
         width: 100%;
         position: absolute;
         top: 100%;
         left: 0;
         background-color: var(--secondary-color);
-        padding: 20px 0;
+        padding: 0;
         text-align: center;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        visibility: hidden;
+        transition: max-height 0.3s ease, opacity 0.3s ease, visibility 0.3s ease, padding 0.3s ease;
     }
 
     .nav-links.active {
-        display: flex;
+        padding: 20px 0;
+        max-height: 300px;
+        opacity: 1;
+        visibility: visible;
     }
 
     .menu-toggle {

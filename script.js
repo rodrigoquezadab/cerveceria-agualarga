@@ -4,13 +4,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnYes = document.getElementById('btn-yes');
     const btnNo = document.getElementById('btn-no');
 
+    // Page content elements to hide for accessibility when age gate modal is active
+    const pageContents = Array.from(document.body.children).filter(el => el !== ageGate && el.tagName !== 'SCRIPT');
+
+    const hidePageContent = () => {
+        pageContents.forEach(el => el.setAttribute('aria-hidden', 'true'));
+    };
+
+    const showPageContent = () => {
+        pageContents.forEach(el => el.removeAttribute('aria-hidden'));
+    };
+
     // Check if previously verified in this session
     if (sessionStorage.getItem('ageVerified') === 'true') {
         if (ageGate) ageGate.style.display = 'none';
         document.body.style.overflow = 'auto'; // Restore scroll
+        showPageContent();
     } else {
         // Lock scroll when age gate is visible
         document.body.style.overflow = 'hidden';
+        hidePageContent();
     }
 
     if (btnYes) {
@@ -22,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 setTimeout(() => {
                     ageGate.style.display = 'none';
                     document.body.style.overflow = 'auto'; // Restore scroll
+                    showPageContent();
                 }, 500);
             }
         });
@@ -37,9 +51,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
 
-    if (menuToggle) {
+    if (menuToggle && navLinks) {
+        // Initialize accessibility attributes
+        menuToggle.setAttribute('aria-expanded', 'false');
+
         menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
+            const isActive = navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('active', isActive);
+            
+            // Toggle accessibility state
+            menuToggle.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+            menuToggle.setAttribute('aria-label', isActive ? 'Cerrar menú' : 'Abrir menú');
         });
     }
 
@@ -136,6 +158,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Close mobile menu if open
                 if (navLinks.classList.contains('active')) {
                     navLinks.classList.remove('active');
+                    if (menuToggle) {
+                        menuToggle.classList.remove('active');
+                        menuToggle.setAttribute('aria-expanded', 'false');
+                        menuToggle.setAttribute('aria-label', 'Abrir menú');
+                    }
                 }
 
                 const headerOffset = 80;
