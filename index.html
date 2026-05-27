@@ -24,7 +24,7 @@
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="styles.css?v=1.3">
+    <link rel="stylesheet" href="styles.css?v=1.4">
     <link rel="stylesheet" href="age-gate.css">
     <link rel="icon" type="image/png" href="/images/fav-icons/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/images/fav-icons/favicon.svg" />
@@ -58,10 +58,10 @@
         <div class="age-gate-content">
             <img src="images/logo%20700px.png" alt="Cerveza Agualarga Logo"
                 style="max-width: 200px; margin: 0 auto 20px; display: block;">
-            <h2 class="age-question">¿Eres mayor de 18 años?</h2>
+            <h2 class="age-question" data-i18n="age-question">¿Eres mayor de 18 años?</h2>
             <div class="age-buttons">
-                <button id="btn-yes" class="age-btn yes">Soy mayor de 18</button>
-                <button id="btn-no" class="age-btn no">Soy menor</button>
+                <button id="btn-yes" class="age-btn yes" data-i18n="age-btn-yes">Soy mayor de 18</button>
+                <button id="btn-no" class="age-btn no" data-i18n="age-btn-no">Soy menor</button>
             </div>
             <h1 class="age-brand-title">Cerveza Agualarga</h1>
         </div>
@@ -78,11 +78,16 @@
                     <span></span>
                 </button>
                 <ul class="nav-links">
-                    <li><a href="#quienes-somos">Quiénes Somos</a></li>
-                    <li><a href="#variedades">Variedades</a></li>
-                    <li><a href="#donde-encontrarnos">Dónde Encontrarnos</a></li>
-                    <li><a href="#cervecero">Nuestro Cervecero</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="#quienes-somos" data-i18n="nav-about">Quiénes Somos</a></li>
+                    <li><a href="#variedades" data-i18n="nav-varieties">Variedades</a></li>
+                    <li><a href="#donde-encontrarnos" data-i18n="nav-places">Dónde Encontrarnos</a></li>
+                    <li><a href="#cervecero" data-i18n="nav-brewer">Nuestro Cervecero</a></li>
+                    <li><a href="#contacto" data-i18n="nav-contact">Contacto</a></li>
+                    <li class="lang-selector-container">
+                        <button class="lang-btn" onclick="setLanguage('es')">ES</button>
+                        <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+                        <button class="lang-btn" onclick="setLanguage('pt')">PT</button>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -92,29 +97,29 @@
         <div class="hero-content">
             <img src="images/logo%20700px.png" alt="Cerveza Agualarga Logo"
                 style="max-width: 250px; margin: 0 auto 20px; display: block;">
-            <h1>Espíritu de Montaña</h1>
-            <p>Huella Artesanal, elaborada con Agua de Vertiente en Farellones.</p>
-            <a href="#donde-encontrarnos" class="cta-button">Puntos de Venta</a>
+            <h1 data-i18n="hero-title">Espíritu de Montaña</h1>
+            <p data-i18n="hero-subtitle">Huella Artesanal, elaborada con Agua de Vertiente en Farellones.</p>
+            <a href="#donde-encontrarnos" class="cta-button" data-i18n="hero-cta">Puntos de Venta</a>
         </div>
     </section>
 
     <div class="container">
         <section id="quienes-somos" class="section-padding">
-            <h2 class="section-title">Nuestra Esencia</h2>
+            <h2 class="section-title" data-i18n="about-title">Nuestra Esencia</h2>
             <div class="about-content">
-                <p>En <strong>Agualarga</strong>, el corazón de nuestra cerveza late en Farellones. Aquí, en la
+                <p data-i18n="about-p1">En <strong>Agualarga</strong>, el corazón de nuestra cerveza late en Farellones. Aquí, en la
                     majestuosidad de la montaña, nace nuestra cerveza artesanal, infundida con la pureza inigualable del
                     <strong>"Agua de Vertiente"</strong> natural.
                 </p>
-                <p>Este origen único nos permite ofrecerte variedades con un sabor auténtico, reflejo de nuestra pasión
+                <p data-i18n="about-p2">Este origen único nos permite ofrecerte variedades con un sabor auténtico, reflejo de nuestra pasión
                     familiar y fidelidad a la calidad. Creemos en la artesanía, la innovación y la satisfacción de
                     quienes buscan una experiencia cervecera memorable.</p>
             </div>
         </section>
 
         <section id="variedades" class="section-padding">
-            <h2 class="section-title">Nuestras Variedades</h2>
-            <p class="section-subtitle">Descubre el carácter de cada una de nuestras creaciones.</p>
+            <h2 class="section-title" data-i18n="varieties-title">Nuestras Variedades</h2>
+            <p class="section-subtitle" data-i18n="varieties-subtitle">Descubre el carácter de cada una de nuestras creaciones.</p>
             <div class="beer-cards" id="beer-list">
                 <!-- Javascript will populate this -->
             </div>
@@ -127,16 +132,16 @@
             <div class="places-grid">
                 <div class="place-card">
                     <img src="images/peluqueria-francesa.jpg" alt="Peluquería Francesa" class="place-img">
-                    <h3>Peluquería Francesa</h3>
-                    <p class="place-desc">Bar Restaurante histórico en el corazón del Barrio Yungay.</p>
+                    <h3 data-i18n="places-pf-title">Peluquería Francesa</h3>
+                    <p class="place-desc" data-i18n="place-pf-desc">Bar Restaurante histórico en el corazón del Barrio Yungay.</p>
                     <div class="place-details">
-                        <p><strong>Dirección:</strong> Compañía de Jesús 2789, Santiago.</p>
-                        <p><strong>Reservas:</strong> +56 9 7798 9743</p>
+                        <p data-i18n="place-pf-address"><strong>Dirección:</strong> Compañía de Jesús 2789, Santiago.</p>
+                        <p data-i18n="place-pf-res"><strong>Reservas:</strong> +56 9 7798 9743</p>
                     </div>
                     <div class="place-links">
-                        <a href="https://peluqueriafrancesa.com/" target="_blank" rel="noopener" class="place-btn"><i
+                        <a href="https://peluqueriafrancesa.com/" target="_blank" rel="noopener" class="place-btn" data-i18n="place-pf-web"><i
                                 class="fas fa-globe"></i> Visitar Web</a>
-                        <a href="carta-maridaje.html" class="place-btn"><i class="fas fa-utensils"></i> Ver Carta de
+                        <a href="carta-maridaje.html" class="place-btn" data-i18n="place-pf-menu"><i class="fas fa-utensils"></i> Ver Carta de
                             Maridaje</a>
                         <a href="https://instagram.com/peluqueriafrancesa" target="_blank" rel="noopener" class="instagram-link"><i
                                 class="fab fa-instagram"></i> @peluqueriafrancesa</a>
@@ -145,14 +150,14 @@
 
                 <div class="place-card">
                     <img src="images/agua-de-piedra.jpg" alt="Agua de Piedra" class="place-img">
-                    <h3>Agua de Piedra</h3>
-                    <p class="place-desc">Tradición y comida casera en Curacaví.</p>
+                    <h3 data-i18n="places-ap-title">Agua de Piedra</h3>
+                    <p class="place-desc" data-i18n="place-ap-desc">Tradición y comida casera en Curacaví.</p>
                     <div class="place-details">
-                        <p><strong>Dirección:</strong> Ruta 68 km 55, Curacaví.</p>
-                        <p><strong>Reservas:</strong> +56 2 2835 1122</p>
+                        <p data-i18n="place-ap-address"><strong>Dirección:</strong> Ruta 68 km 55, Curacaví.</p>
+                        <p data-i18n="place-ap-res"><strong>Reservas:</strong> +56 2 2835 1122</p>
                     </div>
                     <div class="place-links">
-                        <a href="https://www.restaurantaguadepiedra.cl/" target="_blank" rel="noopener" class="place-btn"><i
+                        <a href="https://www.restaurantaguadepiedra.cl/" target="_blank" rel="noopener" class="place-btn" data-i18n="place-ap-web"><i
                                 class="fas fa-globe"></i> Visitar Web</a>
                         <a href="https://instagram.com/aguadepiedrarestaurant" target="_blank" rel="noopener" class="instagram-link"><i
                                 class="fab fa-instagram"></i> @aguadepiedrarestaurant</a>
@@ -162,25 +167,25 @@
         </section>
 
         <section id="cervecero" class="section-padding">
-            <h2 class="section-title">El Maestro Cervecero</h2>
+            <h2 class="section-title" data-i18n="brewer-title">El Maestro Cervecero</h2>
             <div class="cervecero-content">
                 <div class="cervecero-img">
                     <img src="images/maestro-sergio-lagos.jpg" alt="Sergio Lagos Balmaceda">
                 </div>
                 <div class="cervecero-text">
-                    <h3>Sergio Lagos Balmaceda</h3>
-                    <p>Formado en EEUU, Argentina e Irlanda, Sergio es el alquimista detrás de Agualarga. Su viaje
+                    <h3 data-i18n="brewer-name">Sergio Lagos Balmaceda</h3>
+                    <p data-i18n="brewer-p1">Formado en EEUU, Argentina e Irlanda, Sergio es el alquimista detrás de Agualarga. Su viaje
                         comenzó en 2012 y se perfeccionó explorando los lúpulos argentinos y la tradición stout
                         irlandesa.</p>
-                    <p>Cada receta es un homenaje a sus viajes y aprendizajes, buscando siempre el equilibrio perfecto
+                    <p data-i18n="brewer-p2">Cada receta es un homenaje a sus viajes y aprendizajes, buscando siempre el equilibrio perfecto
                         entre la tradición europea y el espíritu indómito de los Andes chilenos.</p>
                 </div>
             </div>
         </section>
 
         <section id="contacto" class="section-padding text-center">
-            <h2 class="section-title">Contacto</h2>
-            <p>¿Quieres saber más sobre nuestra producción familiar?</p>
+            <h2 class="section-title" data-i18n="contact-title">Contacto</h2>
+            <p data-i18n="contact-subtitle">¿Quieres saber más sobre nuestra producción familiar?</p>
             <div class="contact-links">
                 <a href="https://instagram.com/agualarga_cerveza_artesanal" target="_blank" rel="noopener"
                     class="contact-btn instagram"><i class="fab fa-instagram"></i> @agualarga_cerveza_artesanal</a>
@@ -190,13 +195,14 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 Cerveza Artesanal Agualarga. Todos los derechos reservados.</p>
-            <p>Espíritu de Montaña | Farellones, Chile</p>
-            <p style="font-size: 0.9em; margin-top: 15px;">Sitio creado por <a href="https://paginawebpymes.cl/"
+            <p data-i18n="footer-copy">&copy; 2026 Cerveza Artesanal Agualarga. Todos los derechos reservados.</p>
+            <p data-i18n="footer-location">Espíritu de Montaña | Farellones, Chile</p>
+            <p style="font-size: 0.9em; margin-top: 15px;"><span data-i18n="footer-created">Sitio creado por</span> <a href="https://paginawebpymes.cl/"
                     target="_blank" rel="noopener" style="color: #ecf0f1;">paginawebpymes.cl</a></p>
         </div>
     </footer>
 
+    <script src="i18n.js"></script>
     <script src="script.js"></script>
 </body>
 

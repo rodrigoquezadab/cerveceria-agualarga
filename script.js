@@ -70,57 +70,59 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const cervezas = [
         {
-            nombre: "Amber Ale Tucúquere",
+            id: "amber",
             grados: "5.5°",
-            descripcion: "Equilibrio perfecto entre malta y lúpulo, con un color ámbar profundo.",
-            imagen: "images/beers/amber cuadrado.png",
-            infoAnimal: "El <strong>Tucúquere</strong> (<em>Bubo magellanicus</em>) es el búho más grande de Chile. Guardián de la noche andina, su ulular profundo resuena en las quebradas. Representa la sabiduría silenciosa y la vigilancia de nuestros valles."
+            imagen: "images/beers/amber cuadrado.png"
         },
         {
-            nombre: "Stout Condor",
+            id: "stout",
             grados: "5.5°",
-            descripcion: "Oscura, robusta y cremosa, con notas intensas a café y chocolate.",
-            imagen: "images/beers/stout cuadrado.png",
-            infoAnimal: "El <strong>Cóndor Andino</strong> (<em>Vultur gryphus</em>) es el rey de los cielos sudamericanos. Símbolo de poder y libertad, planea sobre las cumbres nevadas conectando el mundo terrenal con el espiritual."
+            imagen: "images/beers/stout cuadrado.png"
         },
         {
-            nombre: "Red Lagartija",
+            id: "red",
             grados: "6.0°",
-            descripcion: "Rojiza y vibrante, con un carácter maltoso y un final suave.",
-            imagen: "images/beers/red cuadrado.png",
-            infoAnimal: "La <strong>Lagartija Chilena</strong> es una ágil habitante de las rocas soleadas. Con sus colores vibrantes, simboliza la resiliencia y la vida que florece incluso en los terrenos más áridos de la montaña."
+            imagen: "images/beers/red cuadrado.png"
         },
         {
-            nombre: "IPA Culebra",
+            id: "ipa",
             grados: "7.0°",
-            descripcion: "Potente y aromática, una explosión de lúpulo para los valientes.",
-            imagen: "images/beers/ipa cuadrado.png",
-            infoAnimal: "La <strong>Culebra de Cola Larga</strong> (<em>Philodryas chamissonis</em>) es endémica de Chile. Elegante y veloz, se desliza entre matorrales, recordándonos el respeto por la naturaleza salvaje y su equilibrio."
+            imagen: "images/beers/ipa cuadrado.png"
         }
     ];
 
-    // Populate Beer Cards
-    if (beerList) {
+    function populateBeerCards(lang) {
+        if (!beerList) return;
+        
+        // Clear existing cards
+        beerList.innerHTML = "";
+
         cervezas.forEach(cerveza => {
             const beerCard = document.createElement("div");
             beerCard.classList.add("beer-card");
 
+            const name = (translations[lang] && translations[lang][`beer-${cerveza.id}-name`]) || "";
+            const desc = (translations[lang] && translations[lang][`beer-${cerveza.id}-desc`]) || "";
+            const infoAnimal = (translations[lang] && translations[lang][`beer-${cerveza.id}-animal`]) || "";
+            const btnText = (translations[lang] && translations[lang]["beer-btn-animal"]) || "Sobre el Animal";
+            const alcText = (translations[lang] && translations[lang]["beer-detail-alcohol"]) || "Alcohol";
+
             beerCard.innerHTML = `
-                <img src="${cerveza.imagen}" alt="${cerveza.nombre}" loading="lazy">
+                <img src="${cerveza.imagen}" alt="${name}" loading="lazy">
                 <div class="beer-info">
                     <div>
-                        <h3>${cerveza.nombre}</h3>
-                        <p class="description">${cerveza.descripcion}</p>
+                        <h3>${name}</h3>
+                        <p class="description">${desc}</p>
                     </div>
                     
                     <div class="animal-accordion">
-                        <button class="accordion-btn">Sobre el Animal <i class="fas fa-chevron-down"></i></button>
+                        <button class="accordion-btn">${btnText} <i class="fas fa-chevron-down"></i></button>
                         <div class="accordion-content">
-                            <p>${cerveza.infoAnimal}</p>
+                            <p>${infoAnimal}</p>
                         </div>
                     </div>
 
-                    <p class="details">Alcohol: ${cerveza.grados}</p>
+                    <p class="details">${alcText}: ${cerveza.grados}</p>
                 </div>
             `;
 
@@ -133,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.addEventListener('click', () => {
                 const isActive = content.classList.contains('active');
 
-                // Close all others (optional, but cleaner)
+                // Close all others
                 document.querySelectorAll('.accordion-content').forEach(c => {
                     c.classList.remove('active');
                     c.previousElementSibling.classList.remove('active');
@@ -146,6 +148,15 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // Populate initially on page load based on active language
+    const initialLang = window.currentLanguage || 'es';
+    populateBeerCards(initialLang);
+
+    // Listen to custom languageChanged event from i18n.js
+    document.addEventListener('languageChanged', (e) => {
+        populateBeerCards(e.detail.language);
+    });
 
     // Smooth Scrolling for Anchor Links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

@@ -44,18 +44,25 @@ La cerveza se distribuye de forma exclusiva en selectos restaurantes de comida c
 
 ## 4. Arquitectura del Sitio Web (Frontend)
 
-El sitio es una aplicación web estática construida sobre tecnologías web estándar (HTML5, CSS3 y JavaScript Vanilla) optimizada para velocidad de carga, SEO y accesibilidad.
+El sitio es una aplicación web estática construida sobre tecnologías web estándar (HTML5, CSS3 y JavaScript Vanilla) optimizada para velocidad de carga, SEO, accesibilidad y soporte multiidioma.
 
 ### Archivos del Proyecto
-* [index.html](file:///c:/Users/RodCode/Desktop/Code/cerveceria-agualarga/index.html): Landing page principal que contiene el Hero, la Esencia de la Marca, el catálogo de cervezas, los puntos de venta, el perfil del cervecero, los enlaces de contacto y el pie de página.
-* [carta-maridaje.html](file:///c:/Users/RodCode/Desktop/Code/cerveceria-agualarga/carta-maridaje.html): Subpágina exclusiva con el listado de platos de la Peluquería Francesa asociados con las cervezas Agualarga sugeridas para maridar.
-* [styles.css](file:///c:/Users/RodCode/Desktop/Code/cerveceria-agualarga/styles.css): Hoja de estilos centralizada. Define el sistema de variables de color, tipografías, layout responsivo y micro-interacciones.
-* [age-gate.css](file:///c:/Users/RodCode/Desktop/Code/cerveceria-agualarga/age-gate.css): Estilos independientes y efectos visuales de desenfoque de fondo (glassmorphism) para la pantalla de verificación de edad.
+* [index.html](file:///c:/Users/RodCode/Desktop/Code/cerveceria-agualarga/index.html): Landing page principal que contiene el Hero, la Esencia de la Marca, el catálogo de cervezas, los puntos de venta, el perfil del cervecero, los enlaces de contacto y el pie de página (adaptado con soporte de tags `data-i18n`).
+* [carta-maridaje.html](file:///c:/Users/RodCode/Desktop/Code/cerveceria-agualarga/carta-maridaje.html): Subpágina con el menú de maridajes de la Peluquería Francesa (adaptado con soporte de tags `data-i18n`).
+* [styles.css](file:///c:/Users/RodCode/Desktop/Code/cerveceria-agualarga/styles.css): Hoja de estilos centralizada. Define variables de color, tipografías, responsividad, y estilos para el selector de idiomas (`.lang-selector-container` y `.lang-btn`).
+* [age-gate.css](file:///c:/Users/RodCode/Desktop/Code/cerveceria-agualarga/age-gate.css): Estilos independientes para la pantalla de verificación de edad.
+* [i18n.js](file:///c:/Users/RodCode/Desktop/Code/cerveceria-agualarga/i18n.js): Motor de internacionalización y diccionario de traducciones que soporta:
+  * **Español (es)**: Idioma por defecto.
+  * **Inglés (en)**.
+  * **Portugués de Brasil (pt)**.
+  * Detección automática del idioma del navegador al cargar.
+  * Almacenamiento persistente de la selección del usuario en `localStorage`.
+  * Evento personalizado `languageChanged` para notificar cambios de idioma a otros scripts en tiempo real.
 * [script.js](file:///c:/Users/RodCode/Desktop/Code/cerveceria-agualarga/script.js): Lógica del cliente que maneja:
-  * El control del validador de mayoría de edad (`#age-gate`) guardando el estado en `sessionStorage` para evitar pedir confirmación repetidamente en la misma sesión.
-  * El menú hamburguesa responsivo móvil con transiciones animadas.
-  * El catálogo interactivo de cervezas, renderizando la información de los animales nativos en un acordeón plegable.
-  * El desplazamiento suave de enlaces internos (`smooth scrolling`) con offset de cabecera (`80px`).
+  * El control del validador de mayoría de edad (`#age-gate`).
+  * El menú hamburguesa móvil responsivo.
+  * El catálogo interactivo de cervezas, escuchando el evento `languageChanged` para renderizar el nombre, descripción y datos de conservación de los animales en el idioma seleccionado sin recargar la página.
+  * El desplazamiento suave de enlaces internos (`smooth scrolling`).
 
 ---
 

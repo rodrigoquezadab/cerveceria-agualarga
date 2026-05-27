@@ -596,3 +596,42 @@ footer p {
     margin: 10px 0;
     line-height: 1.5;
 }
+
+/* Language Selector Styles */
+.lang-selector-container {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.lang-btn {
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 3px 8px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.lang-btn:hover {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.lang-btn.active {
+    background-color: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+}
+
+@media (max-width: 768px) {
+    .lang-selector-container {
+        margin-left: 0;
+        margin-top: 15px;
+        justify-content: center;
+    }
+}
